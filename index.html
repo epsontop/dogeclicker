@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <title>Doge Coin Clicker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" async></script>
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/11904421-05a6-4eb1-8384-b3f66948d318/dogeclicker.png?v=1649281464699"
+    />
+    <meta charset="UTF-8" />
+    <meta name="description" content="Click The Doge Coin" />
+    <meta name="keywords" content="Click, Doge Coin" />
+    <meta name="author" content="eps#8322 and chas#4297" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <center>
+      <div class="secLeft">
+        
+        <button onclick="savegamebutton();" class="save tower">
+          Save Game
+        </button>
+        <button onclick="resetgame();" class="save tower">Reset Game</button>
+      </div>
+      <!--imgs and others-->
+      <img
+        src="https://cdn.glitch.global/11904421-05a6-4eb1-8384-b3f66948d318/dogeclicker.png?v=1649281464699"
+        height="200"
+        width="200"
+        onclick="addToScore(clickingPower)"
+        class="clicker"
+      />
+
+      <!-- main -->
+      <div class="scoreCon">
+        <p class="text2">Doge Coins: <span id="score">0</span></p>
+        <p class="text2">
+          Doge Coins Per Second: <span id="ScorePerSecond">0</span>
+        </p>
+      </div>
+
+      <!--buttons-->
+
+      <button onclick="buyDog()" class="tower">
+        Dogs cost <span id="dogCost">5</span> Doge Coins -- Gives 5 Doge Coins
+        Per Second -- Amount owned: <span id="dogs">0</span>
+      </button>
+
+      <button onclick="buyMiner()" class="tower">
+        Miners cost <span id="minerCost">50</span> Doge Coins -- Gives 10 Doge
+        Coins Per Second -- Amount owned: <span id="miners">0</span>
+      </button>
+
+      <button onclick="buyThingy()" class="tower">
+        Thingys cost <span id="thingyCost">1000</span> Doge Coins -- Gives 50
+        Doge Coins Per Second -- Amount owned: <span id="thingys">0</span>
+      </button>
+      <button onclick="buyMonkey()" class="tower">
+        Monkeys cost <span id="monkeyCost">10000</span> Doge Coins -- Gives 100
+        Doge Coins Per Second -- Amount owned: <span id="monkeys">0</span>
+      </button>
+    </center>
+  </body>
+</html>
