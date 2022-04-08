@@ -59,9 +59,6 @@ function buyMiner() {
     document.getElementById("minerCost").innerHTML = minerCost;
     document.getElementById("miners").innerHTML = miners;
     updateScorePerSecond();
-    if (miners >= 10) {
-      minerCost = Math.round((1.25 * minerCost) / 1.75);
-    }
   }
 }
 
@@ -171,9 +168,9 @@ window.onload = function () {
 document.addEventListener(
   "keydown",
   function (event) {
-    if (event.ctrlKey && event.shiftKey && event.which == 76) {
+    if (event.ctrlKey && event.shiftKey &&  event.altKey && event.which == 76) {
       event.preventDefault();
-      alert("chas#4297 did all of the save stuff btw so big shoutout"); 
+      alert("chas#4297 did most of the save stuff btw so big shoutout"); 
     }
   },
   false
