@@ -1,2 +1,3 @@
 # DogeClicker
-Fun
+---------------------
+Play here
