@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+/*text colors*/
+
+.text {
+  color: black;
+  font-family: "Roboto", sans-serif;
+  font-size: medium;
+}
+
+.text2 {
+  font-family: "Roboto", sans-serif;
+  font-size: medium;
+  color: white;
+}
+
+/*background*/
+
+body {
+  background-color: #3f3f3f;
+}
+
+/* tower animatipn */
+.tower {
+  background-color: #d1c0a8;
+  border: solid #d1c0a8;
+  border-radius: 11px;
+  transition: all 0.2s ease-in-out;
+  margin: 4px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.tower:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  background-color: #bfaa8c;
+  border: solid #bfaa8c;
+}
+
+.tower:active {
+  transform: scale(0.9236);
+  background-color: #bfaa8c;
+  border: solid #bfaa8c;
+}
+
+/*clicker animation*/
+.clicker {
+  transition: all 0.2s;
+  float: middle;
+}
+
+.clicker:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+
+.clicker:active {
+  transform: scale(0.93);
+}
+
+.secLeft {
+  float: left;
+  width: 0%;
+  
+}
+
+.scoreCon {
+  font-weight: bold;
+}
+
+.save {
+  width: 100px;
+}
