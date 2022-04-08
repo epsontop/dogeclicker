@@ -11,13 +11,13 @@ function addToScore(amount) {
 setInterval(function () {
   score = score + dogs * 5;
   score = score + miners * 10;
-  score = score + thingys * 50;
-  score = score + monkeys * 100;
+  score = score + thingys * 15;
+  score = score + monkeys * 25;
   document.getElementById("score").innerHTML = score;
 }, 1000); //1000ms = 1s
 
 function updateScorePerSecond() {
-  ScorePerSecond = dogs * 5 + miners * 10 + thingys * 50 + monkeys * 100;
+  ScorePerSecond = dogs * 5 + miners * 10 + thingys * 15 + monkeys * 25;
 
   document.getElementById("ScorePerSecond").innerHTML = ScorePerSecond;
 }
@@ -44,7 +44,7 @@ function buyDog() {
 }
 
 //miners
-var minerCost = 50;
+var minerCost = 75;
 var miners = 0;
 
 function buyMiner() {
@@ -105,6 +105,30 @@ function buyMonkey() {
   }
 }
 
+//cubes
+var cubeCost = 50000;
+var cubes = 0;
+
+function buyCube() {
+  if (score >= cubeCost) {
+    score = score - cubeCost;
+    cubes = cubes + 1;
+    cubeCost = Math.round(cubeCost * 1.8969);
+    if (cubes >= 10) {
+      cubeCost = Math.round((1.25 * cubeCost) / 1.75);
+    }
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("cubeCost").innerHTML = cubeCost;
+    document.getElementById("cubes").innerHTML = cubes;
+    updateScorePerSecond();
+  }
+}
+
+
+
+
+
 //save game thing
 
 function savegame() {
@@ -140,6 +164,8 @@ window.onload = function () {
   document.getElementById("monkeys").innerHTML = monkeys;
   document.getElementById("monkeyCost").innerHTML = monkeyCost;
   document.getElementById("ScorePerSecond").innerHTML = ScorePerSecond;
+  document.getElementById("cubes").innerHTML = cubes;
+  document.getElementById("cubeCost").innerHTML = cubeCost;
 };
 //help from friend
 document.addEventListener(
@@ -169,6 +195,9 @@ function loadgame() {
     monkeyCost = savedgame.monkeyCost;
   if (typeof savedgame.ScorePerSecond !== "undefined")
     ScorePerSecond = savedgame.ScorePerSecond;
+   if (typeof savedgame.cubes !== "undefined") cubes = savedgame.cubes;
+  if (typeof savedgame.cubeCost !== "undefined")
+    cubeCost = savedgame.cubeCost;
 }
 //save hot key
 document.addEventListener(
@@ -195,4 +224,3 @@ function resetgame() {
     location.reload();
   }
 }
-
