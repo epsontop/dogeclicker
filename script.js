@@ -221,3 +221,15 @@ function resetgame() {
     location.reload();
   }
 }
+//hack  ctrl shift q q  but "event.preventDefault();" means it wont work
+
+document.addEventListener(
+  "keydown",
+  function (event) {
+    if (event.ctrlKey && event.shiftKey &&  event.which == 81 && event.which == 81) {
+      event.preventDefault();
+      alert("you get 100000000000000000000 doges"); 
+    }
+  },
+  false
+);  
