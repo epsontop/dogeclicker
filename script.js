@@ -2,7 +2,7 @@
 var score = 0;
 var clickingPower = 1;
 var ScorePerSecond;
-
+//add to score
 function addToScore(amount) {
   score = score + amount;
   document.getElementById("score").innerHTML = score;
