@@ -11,13 +11,14 @@ function addToScore(amount) {
 setInterval(function () {
   score = score + dogs * 5;
   score = score + miners * 10;
-  score = score + thingys * 15;
-  score = score + monkeys * 25;
+  score = score + thingys * 20;
+  score = score + monkeys * 30;
+  score - score + cubes * 45;
   document.getElementById("score").innerHTML = score;
 }, 1000); //1000ms = 1s
 
 function updateScorePerSecond() {
-  ScorePerSecond = dogs * 5 + miners * 10 + thingys * 15 + monkeys * 25;
+  ScorePerSecond = dogs * 5 + miners * 10 + thingys * 20 + monkeys * 30 + cubes * 45;
 
   document.getElementById("ScorePerSecond").innerHTML = ScorePerSecond;
 }
@@ -44,7 +45,7 @@ function buyDog() {
 }
 
 //miners
-var minerCost = 75;
+var minerCost = 100;
 var miners = 0;
 
 function buyMiner() {
@@ -64,7 +65,7 @@ function buyMiner() {
 
 //thingys
 
-var thingyCost = 1000;
+var thingyCost = 5000;
 var thingys = 0;
 
 function buyThingy() {
@@ -140,6 +141,8 @@ function savegame() {
     monkeys: monkeys,
     monkeyCost: monkeyCost,
     ScorePerSecond: ScorePerSecond,
+    cubes: cubes,
+    cubeCost: cubeCost
   };
   localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
@@ -168,7 +171,7 @@ window.onload = function () {
 document.addEventListener(
   "keydown",
   function (event) {
-    if (event.ctrlKey && event.shiftKey &&  event.altKey && event.which == 76) {
+    if (event.ctrlKey && event.shiftKey && event.which == 76) {
       event.preventDefault();
       alert("chas#4297 did most of the save stuff btw so big shoutout"); 
     }
@@ -221,15 +224,3 @@ function resetgame() {
     location.reload();
   }
 }
-//hack  ctrl shift q q  but "event.preventDefault();" means it wont work
-
-document.addEventListener(
-  "keydown",
-  function (event) {
-    if (event.ctrlKey && event.shiftKey &&  event.which == 81 && event.which == 81) {
-      event.preventDefault();
-      alert("you get 100000000000000000000 doges"); 
-    }
-  },
-  false
-);  
