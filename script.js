@@ -13,12 +13,13 @@ setInterval(function () {
   score = score + miners * 10;
   score = score + thingys * 20;
   score = score + monkeys * 30;
-  score - score + cubes * 45;
+  score = score + cubes * 45;
   document.getElementById("score").innerHTML = score;
 }, 1000); //1000ms = 1s
 
 function updateScorePerSecond() {
-  ScorePerSecond = dogs * 5 + miners * 10 + thingys * 20 + monkeys * 30 + cubes * 45;
+  ScorePerSecond =
+    dogs * 5 + miners * 10 + thingys * 20 + monkeys * 30 + cubes * 45;
 
   document.getElementById("ScorePerSecond").innerHTML = ScorePerSecond;
 }
@@ -123,10 +124,6 @@ function buyCube() {
   }
 }
 
-
-
-
-
 //save game thing
 
 function savegame() {
@@ -142,7 +139,7 @@ function savegame() {
     monkeyCost: monkeyCost,
     ScorePerSecond: ScorePerSecond,
     cubes: cubes,
-    cubeCost: cubeCost
+    cubeCost: cubeCost,
   };
   localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
@@ -173,7 +170,7 @@ document.addEventListener(
   function (event) {
     if (event.ctrlKey && event.shiftKey && event.which == 76) {
       event.preventDefault();
-      alert("chas#4297 did most of the save stuff btw so big shoutout"); 
+      alert("chas#4297 did most of the save stuff btw so big shoutout");
     }
   },
   false
@@ -195,9 +192,8 @@ function loadgame() {
     monkeyCost = savedgame.monkeyCost;
   if (typeof savedgame.ScorePerSecond !== "undefined")
     ScorePerSecond = savedgame.ScorePerSecond;
-   if (typeof savedgame.cubes !== "undefined") cubes = savedgame.cubes;
-  if (typeof savedgame.cubeCost !== "undefined")
-    cubeCost = savedgame.cubeCost;
+  if (typeof savedgame.cubes !== "undefined") cubes = savedgame.cubes;
+  if (typeof savedgame.cubeCost !== "undefined") cubeCost = savedgame.cubeCost;
 }
 //save hot key
 document.addEventListener(
