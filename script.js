@@ -123,6 +123,25 @@ function buyCube() {
     updateScorePerSecond();
   }
 }
+//water
+var waterCost = 100000;
+var waters = 0;
+
+function buyWater() {
+  if (score >= waterCost) {
+    score = score - waterCost;
+    waters = waters + 1;
+    waterCost = Math.round(waterCost * 1.8969);
+    if (waters >= 10) {
+      waterCost = Math.round((1.25 * waterCost) / 1.75);
+    }
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("waterCost").innerHTML = waterCost;
+    document.getElementById("waters").innerHTML = waters;
+    updateScorePerSecond();
+  }
+}
 
 //save game thing
 
@@ -140,6 +159,8 @@ function savegame() {
     ScorePerSecond: ScorePerSecond,
     cubes: cubes,
     cubeCost: cubeCost,
+    waters: waters,
+    waterCost: waterCost,
   };
   localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
@@ -163,6 +184,8 @@ window.onload = function () {
   document.getElementById("ScorePerSecond").innerHTML = ScorePerSecond;
   document.getElementById("cubes").innerHTML = cubes;
   document.getElementById("cubeCost").innerHTML = cubeCost;
+  document.getElementById("waters").innerHTML = waters;
+  document.getElementById("waterCost").innerHTML = waterCost;
 };
 //help from friend
 document.addEventListener(
@@ -194,6 +217,8 @@ function loadgame() {
     ScorePerSecond = savedgame.ScorePerSecond;
   if (typeof savedgame.cubes !== "undefined") cubes = savedgame.cubes;
   if (typeof savedgame.cubeCost !== "undefined") cubeCost = savedgame.cubeCost;
+   if (typeof savedgame.waters !== "undefined") waters = savedgame.waters;
+  if (typeof savedgame.waterCost !== "undefined") waterCost = savedgame.waterCost;
 }
 //save hot key
 document.addEventListener(
@@ -219,4 +244,16 @@ function resetgame() {
     localStorage.setItem("gamesave", JSON.stringify(gamesave));
     location.reload();
   }
+}
+
+
+
+
+//total clicks
+
+var tc = 0
+
+function updatetc (amount) {
+    tc = tc + amount ;
+    document.getElementById("tc").innerHTML = tc;
 }
