@@ -14,12 +14,13 @@ setInterval(function () {
   score = score + thingys * 20;
   score = score + monkeys * 30;
   score = score + cubes * 45;
+  score = score + waters * 75;
   document.getElementById("score").innerHTML = score;
 }, 1000); //1000ms = 1s
 
 function updateScorePerSecond() {
   ScorePerSecond =
-    dogs * 5 + miners * 10 + thingys * 20 + monkeys * 30 + cubes * 45;
+    dogs * 5 + miners * 10 + thingys * 20 + monkeys * 30 + cubes * 45; + waters * 75;
 
   document.getElementById("ScorePerSecond").innerHTML = ScorePerSecond;
 }
@@ -246,6 +247,9 @@ function resetgame() {
   }
 }
 
+function e() {
+  alert("LOL")
+}
 
 
 
