@@ -248,7 +248,7 @@ function resetgame() {
 }
 
 function e() {
-  alert("LOL")
+  alert("secret found take screen shot")
 }
 
 
