@@ -15,16 +15,16 @@
   </head>
   <body data-theme="dark">
     <center>
-      <h1 class="text2">
-        Doge Clicker
-      </h1>
       <div class="secLeft">
         <button onclick="savegamebutton();" class="save tower">
           Save Game
         </button>
         <button onclick="resetgame();" class="save tower">Reset Game</button>
        
-       <!---addding total clicks here--->
+        <span>
+        <p class="text2">Total Clicks: <span id="tc">0</span></p>
+        
+    </span>
         
       </div>
       <!--imgs and others-->
@@ -32,7 +32,7 @@
         src="https://cdn.glitch.global/11904421-05a6-4eb1-8384-b3f66948d318/dogeclicker.png?v=1649281464699"
         height="200"
         width="200"
-        onclick="addToScore(clickingPower)"
+        onclick="addToScore(clickingPower); updatetc (1)"
         class="clicker"
       />
 
@@ -72,6 +72,7 @@
         Water cost <span id="waterCost">100000</span> Doges -- Gives 75 Doges Per
         Second -- Amount owned: <span id="waters">0</span>
       </button>
+      
     </center>
   </body>
 </html>
