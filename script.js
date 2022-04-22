@@ -21,7 +21,13 @@ setInterval(function () {
 
 function updateScorePerSecond() {
   ScorePerSecond =
-    dogs * 5 + miners * 10 + thingys * 20 + monkeys * 30 + cubes * 45 + waters * 75 + rocks * 90 ;
+    dogs * 5 +
+    miners * 10 +
+    thingys * 20 +
+    monkeys * 30 +
+    cubes * 45 +
+    waters * 75 +
+    rocks * 90;
 
   document.getElementById("ScorePerSecond").innerHTML = ScorePerSecond;
 }
@@ -144,6 +150,7 @@ function buyWater() {
     updateScorePerSecond();
   }
 }
+
 //rock
 var rockCost = 750000;
 var rocks = 0;
@@ -152,7 +159,7 @@ function buyRock() {
   if (score >= rockCost) {
     score = score - rockCost;
     rocks = rocks + 1;
-      rockCost = Math.round(rockCost * 1.8969);
+    rockCost = Math.round(rockCost * 1.8969);
     if (rocks >= 10) {
       rockCost = Math.round((1.25 * rockCost) / 1.75);
     }
@@ -162,6 +169,8 @@ function buyRock() {
     document.getElementById("rocks").innerHTML = rocks;
     updateScorePerSecond();
   }
+}
+
 //save game thing
 
 function savegame() {
@@ -181,13 +190,15 @@ function savegame() {
     cubeCost: cubeCost,
     waters: waters,
     waterCost: waterCost,
+    rocks: rocks,
+    rockCost: rockCost,
   };
   localStorage.setItem("gamesave", JSON.stringify(gamesave));
 }
 
 setInterval(function () {
   savegame();
-}, 30000); // 30000ms = 30s
+}, 20000); // 20000ms = 20s
 
 window.onload = function () {
   loadgame();
@@ -206,7 +217,7 @@ window.onload = function () {
   document.getElementById("cubes").innerHTML = cubes;
   document.getElementById("cubeCost").innerHTML = cubeCost;
   document.getElementById("waters").innerHTML = waters;
-  document.getElementById("waterCost").innerHTML = waterCost
+  document.getElementById("waterCost").innerHTML = waterCost;
   document.getElementById("rocks").innerHTML = rocks;
   document.getElementById("rockCost").innerHTML = rockCost;
 };
@@ -225,7 +236,7 @@ document.addEventListener(
 function loadgame() {
   var savedgame = JSON.parse(localStorage.getItem("gamesave"));
   if (typeof savedgame.score !== "undefined") score = savedgame.score;
-    if (typeof savedgame.tc !== "undefined") tc = savedgame.tc;
+   if (typeof savedgame.tc !== "undefined") tc = savedgame.tc;
   if (typeof savedgame.miners !== "undefined") miners = savedgame.miners;
   if (typeof savedgame.minerCost !== "undefined")
     minerCost = savedgame.minerCost;
@@ -241,8 +252,9 @@ function loadgame() {
     ScorePerSecond = savedgame.ScorePerSecond;
   if (typeof savedgame.cubes !== "undefined") cubes = savedgame.cubes;
   if (typeof savedgame.cubeCost !== "undefined") cubeCost = savedgame.cubeCost;
-   if (typeof savedgame.waters !== "undefined") waters = savedgame.waters;
-  if (typeof savedgame.waterCost !== "undefined") waterCost = savedgame.waterCost;
+  if (typeof savedgame.waters !== "undefined") waters = savedgame.waters;
+  if (typeof savedgame.waterCost !== "undefined")
+    waterCost = savedgame.waterCost;
   if (typeof savedgame.rocks !== "undefined") rocks = savedgame.rocks;
   if (typeof savedgame.rockCost !== "undefined") rockCost = savedgame.rockCost;
 }
@@ -271,12 +283,6 @@ function resetgame() {
     location.reload();
   }
 }
-
-function e() {
-  alert("LOL")
-}
-
-
 
 //total clicks
 
