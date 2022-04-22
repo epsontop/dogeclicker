@@ -22,9 +22,8 @@
         <button onclick="resetgame();" class="save tower">Reset Game</button>
        
         <span>
-        <p class="text2">Total Clicks: <span id="tc">0</span></p>
-        
-    </span>
+         <p class="text2">Total Clicks: <span id="tc">0</span></p>
+        </span>
         
       </div>
       <!--imgs and others-->
@@ -32,7 +31,7 @@
         src="https://cdn.glitch.global/11904421-05a6-4eb1-8384-b3f66948d318/dogeclicker.png?v=1649281464699"
         height="200"
         width="200"
-        onclick="addToScore(clickingPower); updatetc (1)"
+        onclick="addToScore(clickingPower), updatetc(1)"
         class="clicker"
       />
 
@@ -45,7 +44,7 @@
       </div>
 
       <!--buttons-->
-
+<div class="secCenter">
       <button onclick="buyDog()" class="tower">
         Dogs cost <span id="dogCost">5</span> Doges -- Gives 5 Doges Per Second
         -- Amount owned: <span id="dogs">0</span>
@@ -69,10 +68,14 @@
         Second -- Amount owned: <span id="cubes">0</span>
       </button>
       <button onclick="buyWater()" class="tower">
-        Water cost <span id="waterCost">100000</span> Doges -- Gives 75 Doges Per
+        Waters cost <span id="waterCost">100000</span> Doges -- Gives 75 Doges Per
         Second -- Amount owned: <span id="waters">0</span>
       </button>
-      
+      <button onclick="buyRock()" class="tower">
+        Rocks cost <span id="rockCost">750000</span> Doges -- Gives 90 Doges Per
+        Second -- Amount owned: <span id="rocks">0</span>
+      </button>
+    </div>
     </center>
   </body>
 </html>
