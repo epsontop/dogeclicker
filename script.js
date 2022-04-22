@@ -15,12 +15,13 @@ setInterval(function () {
   score = score + monkeys * 30;
   score = score + cubes * 45;
   score = score + waters * 75;
+  score = score + rocks * 90;
   document.getElementById("score").innerHTML = score;
 }, 1000); //1000ms = 1s
 
 function updateScorePerSecond() {
   ScorePerSecond =
-    dogs * 5 + miners * 10 + thingys * 20 + monkeys * 30 + cubes * 45; + waters * 75;
+    dogs * 5 + miners * 10 + thingys * 20 + monkeys * 30 + cubes * 45 + waters * 75 + rocks * 90 ;
 
   document.getElementById("ScorePerSecond").innerHTML = ScorePerSecond;
 }
@@ -143,12 +144,30 @@ function buyWater() {
     updateScorePerSecond();
   }
 }
+//rock
+var rockCost = 750000;
+var rocks = 0;
 
+function buyRock() {
+  if (score >= rockCost) {
+    score = score - rockCost;
+    rocks = rocks + 1;
+      rockCost = Math.round(rockCost * 1.8969);
+    if (rocks >= 10) {
+      rockCost = Math.round((1.25 * rockCost) / 1.75);
+    }
+
+    document.getElementById("score").innerHTML = score;
+    document.getElementById("rockCost").innerHTML = rockCost;
+    document.getElementById("rocks").innerHTML = rocks;
+    updateScorePerSecond();
+  }
 //save game thing
 
 function savegame() {
   var gamesave = {
     score: score,
+    tc: tc,
     miners: miners,
     minerCost: minerCost,
     dogs: dogs,
@@ -174,6 +193,7 @@ window.onload = function () {
   loadgame();
   updateScorePerSecond();
   document.getElementById("score").innerHTML = score;
+  document.getElementById("tc").innerHTML = tc;
   document.getElementById("miners").innerHTML = miners;
   document.getElementById("minerCost").innerHTML = minerCost;
   document.getElementById("dogs").innerHTML = dogs;
@@ -186,7 +206,9 @@ window.onload = function () {
   document.getElementById("cubes").innerHTML = cubes;
   document.getElementById("cubeCost").innerHTML = cubeCost;
   document.getElementById("waters").innerHTML = waters;
-  document.getElementById("waterCost").innerHTML = waterCost;
+  document.getElementById("waterCost").innerHTML = waterCost
+  document.getElementById("rocks").innerHTML = rocks;
+  document.getElementById("rockCost").innerHTML = rockCost;
 };
 //help from friend
 document.addEventListener(
@@ -203,6 +225,7 @@ document.addEventListener(
 function loadgame() {
   var savedgame = JSON.parse(localStorage.getItem("gamesave"));
   if (typeof savedgame.score !== "undefined") score = savedgame.score;
+    if (typeof savedgame.tc !== "undefined") tc = savedgame.tc;
   if (typeof savedgame.miners !== "undefined") miners = savedgame.miners;
   if (typeof savedgame.minerCost !== "undefined")
     minerCost = savedgame.minerCost;
@@ -220,6 +243,8 @@ function loadgame() {
   if (typeof savedgame.cubeCost !== "undefined") cubeCost = savedgame.cubeCost;
    if (typeof savedgame.waters !== "undefined") waters = savedgame.waters;
   if (typeof savedgame.waterCost !== "undefined") waterCost = savedgame.waterCost;
+  if (typeof savedgame.rocks !== "undefined") rocks = savedgame.rocks;
+  if (typeof savedgame.rockCost !== "undefined") rockCost = savedgame.rockCost;
 }
 //save hot key
 document.addEventListener(
@@ -248,7 +273,7 @@ function resetgame() {
 }
 
 function e() {
-  alert("secret found take screen shot")
+  alert("LOL")
 }
 
 
