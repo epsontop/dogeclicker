@@ -295,5 +295,5 @@ function updatetc (amount) {
 
 
 function test() {
-  alert("hi")
+  alert("Wow you found something im supposed to delete but didnt cool")
 }
