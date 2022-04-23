@@ -292,3 +292,8 @@ function updatetc (amount) {
     tc = tc + amount ;
     document.getElementById("tc").innerHTML = tc;
 }
+
+
+function test() {
+  alert("hi")
+}
